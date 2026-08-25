@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: enterprise-rag-config
+data:
+  ENVIRONMENT: production
+  LOG_LEVEL: INFO
+  API_PREFIX: /v1
+  EMBEDDING_MODEL: sentence-transformers/all-MiniLM-L6-v2
+  EMBEDDING_DIMENSION: "384"
+  EMBEDDING_DEVICE: cpu
+  LLM_PROVIDER: extractive
+  RETRIEVAL_TOP_K: "5"
+  RETRIEVAL_CANDIDATE_K: "40"
+  CACHE_ENABLED: "true"
+  CACHE_SIMILARITY_THRESHOLD: "0.93"
+  CACHE_TTL_SECONDS: "3600"
+  AUTO_SEED_SYNTHETIC_DATA: "false"

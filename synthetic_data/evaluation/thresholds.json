@@ -1,0 +1,5 @@
+{
+  "mean_source_hit": 0.75,
+  "mean_mrr": 0.60,
+  "mean_ragas_id_context_recall": 0.75
+}

@@ -1,0 +1,18 @@
+{
+  "tenant_id": "demo",
+  "documents": [
+    {"source_id":"SEC-001","title":"Information Security Policy","path":"documents/security_policy.md","metadata":{"category":"policy","department":"security"}},
+    {"source_id":"IR-001","title":"Cybersecurity Incident Response Standard","path":"documents/incident_response.md","metadata":{"category":"procedure","department":"security"}},
+    {"source_id":"DATA-001","title":"Enterprise Data Retention and Disposal Schedule","path":"documents/data_retention.md","metadata":{"category":"policy","department":"legal"}},
+    {"source_id":"PROC-001","title":"Procurement and Supplier Risk Procedure","path":"documents/procurement_supplier_risk.md","metadata":{"category":"procedure","department":"procurement"}},
+    {"source_id":"WAR-001","title":"Vehicle Warranty Operations Playbook","path":"documents/warranty_operations.md","metadata":{"category":"playbook","department":"warranty"}},
+    {"source_id":"HR-001","title":"US Paid Time Off and Leave Guide","path":"documents/hr_leave.md","metadata":{"category":"policy","department":"hr"}},
+    {"source_id":"TRAVEL-001","title":"Business Travel and Expense Standard","path":"documents/travel_expense.md","metadata":{"category":"policy","department":"finance"}},
+    {"source_id":"SRE-001","title":"Cloud Service Reliability Standard","path":"documents/cloud_sre.md","metadata":{"category":"standard","department":"technology"}},
+    {"source_id":"AI-001","title":"Responsible AI Governance Standard","path":"documents/ai_governance.md","metadata":{"category":"standard","department":"risk"}},
+    {"source_id":"BCP-001","title":"Business Continuity and Crisis Management Plan","path":"documents/business_continuity.md","metadata":{"category":"plan","department":"operations"}},
+    {"source_id":"QMS-001","title":"Quality Nonconformance and CAPA Procedure","path":"documents/quality_capa.md","metadata":{"category":"procedure","department":"quality"}},
+    {"source_id":"SUP-001","title":"Enterprise Customer Support Service Levels","path":"documents/customer_support_sla.md","metadata":{"category":"sla","department":"support"}},
+    {"source_id":"CAT-001","title":"Acme Industrial Analytics Product Catalog","path":"documents/product_catalog.md","metadata":{"category":"catalog","department":"sales"}}
+  ]
+}

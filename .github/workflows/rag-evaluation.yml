@@ -1,0 +1,49 @@
+name: RAG Evaluation
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "app/**"
+      - "synthetic_data/**"
+      - "scripts/evaluate.py"
+      - "Dockerfile"
+      - "docker-compose.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  evaluate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build and start stack
+        run: docker compose up --build -d
+      - name: Wait for seeded API
+        run: |
+          for i in {1..60}; do
+            if curl -fsS http://localhost:8000/health/ready; then exit 0; fi
+            sleep 10
+          done
+          docker compose logs api
+          exit 1
+      - name: Run retrieval and Ragas evaluation gate
+        run: >-
+          docker compose exec -T api python -m scripts.evaluate
+          --no-llm-metrics
+          --thresholds synthetic_data/evaluation/thresholds.json
+      - name: Upload evaluation artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: rag-evaluation
+          path: artifacts/evaluations/
+      - name: Show logs on failure
+        if: failure()
+        run: docker compose logs api postgres
+      - name: Stop stack
+        if: always()
+        run: docker compose down -v
