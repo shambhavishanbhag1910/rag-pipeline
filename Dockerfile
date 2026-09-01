@@ -1,4 +1,4 @@
-FROM python:3.12-slim AS builder
+FROM python:3.14-slim AS builder
 
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
@@ -17,7 +17,7 @@ COPY scripts ./scripts
 RUN python -m pip install --upgrade pip && \
     python -m pip wheel --wheel-dir /wheels .
 
-FROM python:3.12-slim AS runtime
+FROM python:3.14-slim AS runtime
 
 ARG PRELOAD_EMBEDDING_MODEL=true
 ARG EMBEDDING_MODEL=sentence-transformers/all-MiniLM-L6-v2
